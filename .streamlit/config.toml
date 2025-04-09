@@ -1,0 +1,7 @@
+[theme]
+base = "light"
+primaryColor = "#6db193"            # Verde suave (equilíbrio, saúde)
+backgroundColor = "#f2f7f5"         # Fundo levemente esverdeado
+secondaryBackgroundColor = "#ffffff"
+textColor = "#2e3b3d"               # Cinza escuro (contraste suave)
+font = "sans serif"
