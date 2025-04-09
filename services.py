@@ -1,6 +1,10 @@
 from num2words import num2words
 from datetime import datetime
+import streamlit as st
 
+
+USUARIO = "Carol"
+SENHA = "ACS33426885"
 
 def adicionar_cliente(cursor, conn, nome, cpf, valor, frequencia, freq_pagamento, ativo):
     cursor.execute("""
@@ -118,3 +122,20 @@ def ultimo_dia_do_mes(ano, mes):
     from datetime import date, timedelta
     fim = date(ano, mes, 28) + timedelta(days=4)
     return fim - timedelta(days=fim.day)
+
+
+def checar_autenticacao():
+    if "autenticado" not in st.session_state:
+        st.session_state["autenticado"] = False
+
+    if not st.session_state["autenticado"]:
+        st.title("🔐 Sistema da Psicóloga - Login")
+        usuario = st.text_input("Usuário")
+        senha = st.text_input("Senha", type="password")
+        if st.button("Entrar"):
+            if usuario == USUARIO and senha == SENHA:
+                st.session_state["autenticado"] = True
+                st.rerun()
+            else:
+                st.error("Usuário ou senha incorretos")
+        st.stop()

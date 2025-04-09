@@ -10,6 +10,9 @@ import modulos.visao_geral as visao
 import modulos.configuracoes as configuracoes
 import modulos.evolucao as evolucao
 import modulos.services
+from services import checar_autenticacao
+
+checar_autenticacao()
 
 # Conexão com banco de dados
 conn, cursor = conectar()
